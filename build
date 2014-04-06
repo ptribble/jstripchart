@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# build jingle
+#
+
+XFLAGS="-Xlint -Xlint:-serial"
+
+#
+# run
+# ./build pmd
+# to use this, and it should pass
+#
+PMDCHECKS="braces,basic,imports,unusedcode,typeresolution,coupling,clone,sunsecure,finalizers,migrating,strictexception,design"
+
+case $1 in
+clean)
+	rm -f `find uk/co -type f -name '*.class'`
+	rm -f `find . -type f -name '*~'`
+	rm -fr javadoc
+	exit 0
+	;;
+pmd)
+	pmd uk $PMDCHECKS
+	exit 0
+	;;
+doc)
+	rm -fr javadoc
+	mkdir javadoc
+	javadoc -d javadoc uk.co.petertribble.jstripchart
+	exit 0
+	;;
+esac
+
+if [ -x /opt/onbld/bin/jstyle ]; then
+    /opt/onbld/bin/jstyle `find uk -name '*.java'`
+fi
+
+javac ${XFLAGS} uk/co/petertribble/jstripchart/*.java
+
+jar cf lib/java/jstripchart.jar `find uk/co/petertribble/jstripchart -type f -name '*.class'`
