@@ -10,7 +10,10 @@ XFLAGS="-Xlint -Xlint:-serial"
 # ./build pmd
 # to use this, and it should pass
 #
-PMDCHECKS="braces,basic,imports,unusedcode,typeresolution,coupling,clone,sunsecure,finalizers,migrating,strictexception,design"
+# new PMD version has rulesets
+#
+PMDRULES="imports typeresolution clone finalizers sunsecure unusedcode braces migrating strictexception design"
+PMDCATRULES="security bestpractices"
 
 case $1 in
 clean)
@@ -20,7 +23,17 @@ clean)
 	exit 0
 	;;
 pmd)
-	pmd uk $PMDCHECKS
+	RULESETS=""
+	for RULE in $PMDRULES
+	do
+	    RULESETS="${RULESETS},rulesets/java/${RULE}.xml"
+	done
+	for RULE in $PMDCATRULES
+	do
+	    RULESETS="${RULESETS},category/java/${RULE}.xml"
+	done
+	RULESETS=`echo $RULESETS|sed s:,::`
+	pmd -d uk -R $RULESETS -version 1.5 -auxclasspath `echo lib/java/* | sed 's= =:=g'` 2>/dev/null
 	exit 0
 	;;
 doc)
