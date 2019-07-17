@@ -5,24 +5,17 @@
 
 XFLAGS="-Xlint -Xlint:-serial"
 
-#
-# run
-# ./build pmd
-# to use this, and it should pass
-#
-# new PMD version has rulesets
-#
-PMDRULES="imports typeresolution clone finalizers sunsecure unusedcode braces migrating strictexception design"
-PMDCATRULES="security bestpractices"
-
 case $1 in
-clean)
+clean|-clean)
 	rm -f `find uk/co -type f -name '*.class'`
 	rm -f `find . -type f -name '*~'`
 	rm -fr javadoc
 	exit 0
 	;;
-pmd)
+pmd|-pmd)
+	#
+	# new PMD version has rulesets
+	#
 	RULESETS=""
 	for RULE in $PMDRULES
 	do
@@ -36,7 +29,7 @@ pmd)
 	pmd -d uk -R $RULESETS -version 1.5 -auxclasspath `echo lib/java/* | sed 's= =:=g'` 2>/dev/null
 	exit 0
 	;;
-doc)
+doc|-doc)
 	rm -fr javadoc
 	mkdir javadoc
 	javadoc -d javadoc uk.co.petertribble.jstripchart
