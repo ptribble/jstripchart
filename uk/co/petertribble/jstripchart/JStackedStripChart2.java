@@ -175,11 +175,11 @@ public class JStackedStripChart2 extends JPanel {
      * @param d2 the second data point to add
      */
     public void add(double d1, double d2) {
-	if (autoscale && (dmax < d1*1.1)) {
+	if (autoscale && dmax < d1*1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d1*1.10001;
 	}
-	if (autoscale && (dmax < d2*1.1)) {
+	if (autoscale && dmax < d2*1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d2*1.10001;
 	}

@@ -169,7 +169,7 @@ public class JStripChart extends JPanel {
      * @param d the data point to add
      */
     public void add(double d) {
-	if (autoscale && (dmax < d*1.1)) {
+	if (autoscale && dmax < d*1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d*1.10001;
 	}

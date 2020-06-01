@@ -176,11 +176,11 @@ public class JStripChart2 extends JPanel {
      * @param d2 the second data point to add
      */
     public void add(double d1, double d2) {
-	if (autoscale && (dmax < d1*1.1)) {
+	if (autoscale && dmax < d1*1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d1*1.10001;
 	}
-	if (autoscale && (dmax < d2*1.1)) {
+	if (autoscale && dmax < d2*1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d2*1.10001;
 	}
@@ -250,7 +250,7 @@ public class JStripChart2 extends JPanel {
 	if (style == STYLE_SOLID) {
 	    g2.setPaint(fgcolor2);
 	    x = w;
-	    double dh = (dx > 1.0) ? 1.0 : dx;
+	    double dh = dx > 1.0 ? 1.0 : dx;
 	    for (int i = ncur; i >= 0; i--) {
 		x -= dx;
 		double hh = h*values2[i]/dmax;
