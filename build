@@ -4,8 +4,8 @@
 #
 
 XFLAGS="-Xlint -Xlint:-serial"
-PMDRULES="imports typeresolution clone finalizers sunsecure unusedcode braces migrating strictexception unnecessary"
-PMDCATRULES="security"
+PMDRULES="basic braces clone empty finalizers imports migrating strictexception strings sunsecure typeresolution unnecessary unusedcode"
+PMDCATRULES="security bestpractices"
 
 case $1 in
 clean|-clean)
