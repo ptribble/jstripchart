@@ -1,7 +1,12 @@
 #!/bin/sh
 #
+# SPDX-License-Identifier: CDDL-1.0
+#
 # build jstripchart
 #
+
+PATH=/usr/jdk/instances/jdk1.8.0/bin:$PATH
+export PATH
 
 XFLAGS="-Xlint -Xlint:-serial"
 PMDRULES="basic braces clone empty finalizers imports migrating strictexception strings sunsecure typeresolution unnecessary unusedcode"
@@ -10,8 +15,8 @@ PMDCACHE="${HOME}/.pmd/cache.jstripchart"
 
 case $1 in
 clean|-clean)
-	rm -f `find uk/co -type f -name '*.class'`
-	rm -f `find . -type f -name '*~'`
+	rm -f $(find uk/co -type f -name '*.class')
+	rm -f $(find . -type f -name '*~')
 	rm -fr javadoc
 	exit 0
 	;;
@@ -29,10 +34,10 @@ pmd|-pmd)
 	    RULESETS="${RULESETS},category/java/${RULE}.xml"
 	done
 	RULESETS=${RULESETS/,/}
-	if [ ! -d ${HOME}/.pmd ]; then
-	    mkdir -p ${HOME}/.pmd
+	if [ ! -d "${HOME}/.pmd" ]; then
+	    mkdir -p "${HOME}/.pmd"
 	fi
-	pmd check --cache ${PMDCACHE} -d uk -R $RULESETS --use-version java-1.8 --aux-classpath `echo lib/java/* | sed 's= =:=g'` 2>/dev/null
+	pmd check --cache "${PMDCACHE}" -d uk -R "$RULESETS" --use-version java-1.8 --aux-classpath $(echo lib/java/* | sed 's= =:=g') 2>/dev/null
 	exit 0
 	;;
 doc|-doc)
@@ -44,9 +49,9 @@ doc|-doc)
 esac
 
 if [ -x /opt/onbld/bin/jstyle ]; then
-    /opt/onbld/bin/jstyle `find uk -name '*.java'`
+    /opt/onbld/bin/jstyle uk/co/petertribble/jstripchart/*.java
 fi
 
 javac ${XFLAGS} uk/co/petertribble/jstripchart/*.java
 
-jar cf lib/java/jstripchart.jar `find uk/co/petertribble/jstripchart -type f -name '*.class'`
+jar cf lib/java/jstripchart.jar uk/co/petertribble/jstripchart/*.class
