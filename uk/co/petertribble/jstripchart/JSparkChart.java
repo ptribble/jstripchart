@@ -59,7 +59,7 @@ public class JSparkChart extends JPanel {
     // background and foreground colours
     private Color bgcolor;
     private Color fgcolor;
-    private BasicStroke stroke;
+    private transient BasicStroke stroke;
 
     /**
      * Create an empty sparkline chart.

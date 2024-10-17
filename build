@@ -9,8 +9,10 @@ PATH=/usr/jdk/instances/jdk1.8.0/bin:$PATH
 export PATH
 
 XFLAGS="-Xlint"
-PMDRULES="quickstart"
-PMDCATRULES="security bestpractices"
+#
+# new PMD version 7 only has categories, configured in pmd-ruleset.xml
+#
+PMDRULES="./pmd-ruleset.xml"
 PMDCACHE="${HOME}/.pmd/cache.jstripchart"
 
 case $1 in
@@ -21,23 +23,10 @@ clean|-clean)
 	exit 0
 	;;
 pmd|-pmd)
-	#
-	# new PMD version has rulesets
-	#
-	RULESETS=""
-	for RULE in $PMDRULES
-	do
-	    RULESETS="${RULESETS},rulesets/java/${RULE}.xml"
-	done
-	for RULE in $PMDCATRULES
-	do
-	    RULESETS="${RULESETS},category/java/${RULE}.xml"
-	done
-	RULESETS=${RULESETS/,/}
 	if [ ! -d "${HOME}/.pmd" ]; then
 	    mkdir -p "${HOME}/.pmd"
 	fi
-	pmd check --cache "${PMDCACHE}" -d uk -R "$RULESETS" --use-version java-1.8 --aux-classpath $(echo lib/java/* | sed 's= =:=g') 2>/dev/null
+	pmd check --cache "${PMDCACHE}" -d uk -R "${PMDRULES}" --use-version java-1.8 --aux-classpath $(echo lib/java/* | sed 's= =:=g') 2>/dev/null
 	exit 0
 	;;
 doc|-doc)
