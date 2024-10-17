@@ -31,6 +31,8 @@ import java.awt.geom.Rectangle2D;
  */
 public class JStripChart extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     // these are imported statically by the other classes in this package
     protected static final int DEFAULT_WIDTH = 80;
     protected static final int DEFAULT_HEIGHT = 80;

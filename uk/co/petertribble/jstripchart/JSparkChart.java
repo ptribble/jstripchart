@@ -34,6 +34,8 @@ import static uk.co.petertribble.jstripchart.JStripChart.DEFAULT_HEIGHT;
  */
 public class JSparkChart extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     // how many points we save
     private int nsize;
     // the current position of the data

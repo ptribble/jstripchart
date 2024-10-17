@@ -34,6 +34,8 @@ import static uk.co.petertribble.jstripchart.JStripChart.STYLE_LINE;
  */
 public class JStackedStripChart2 extends JPanel {
 
+    private static final long serialVersionUID = 1L;
+
     // the current style
     private int style;
 

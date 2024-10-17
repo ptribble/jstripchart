@@ -8,8 +8,8 @@
 PATH=/usr/jdk/instances/jdk1.8.0/bin:$PATH
 export PATH
 
-XFLAGS="-Xlint -Xlint:-serial"
-PMDRULES="basic braces clone empty finalizers imports migrating strictexception strings sunsecure typeresolution unnecessary unusedcode"
+XFLAGS="-Xlint"
+PMDRULES="quickstart"
 PMDCATRULES="security bestpractices"
 PMDCACHE="${HOME}/.pmd/cache.jstripchart"
 
