@@ -37,10 +37,6 @@ doc|-doc)
 	;;
 esac
 
-if [ -x /opt/onbld/bin/jstyle ]; then
-    /opt/onbld/bin/jstyle uk/co/petertribble/jstripchart/*.java
-fi
-
 javac ${XFLAGS} uk/co/petertribble/jstripchart/*.java
 
 jar cf lib/java/jstripchart.jar uk/co/petertribble/jstripchart/*.class
