@@ -30,7 +30,7 @@ import static uk.co.petertribble.jstripchart.JStripChart.STYLE_LINE;
 /**
  * A panel that shows a graphical strip chart graphing 2 values.
  */
-public class JStackedStripChart2 extends JPanel {
+public final class JStackedStripChart2 extends JPanel {
 
     private static final long serialVersionUID = 1L;
 

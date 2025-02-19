@@ -30,7 +30,7 @@ import static uk.co.petertribble.jstripchart.JStripChart.DEFAULT_HEIGHT;
 /**
  * A panel that shows a sparkline chart.
  */
-public class JSparkChart extends JPanel {
+public final class JSparkChart extends JPanel {
 
     private static final long serialVersionUID = 1L;
 

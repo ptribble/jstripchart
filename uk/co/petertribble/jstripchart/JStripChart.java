@@ -27,13 +27,13 @@ import java.awt.geom.Rectangle2D;
 /**
  * A panel that shows a graphical strip chart.
  */
-public class JStripChart extends JPanel {
+public final class JStripChart extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
     // these are imported statically by the other classes in this package
-    protected static final int DEFAULT_WIDTH = 80;
-    protected static final int DEFAULT_HEIGHT = 80;
+    public static final int DEFAULT_WIDTH = 80;
+    public static final int DEFAULT_HEIGHT = 80;
     public static final int STYLE_LINE = 0;
     public static final int STYLE_SOLID = 1;
 

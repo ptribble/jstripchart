@@ -31,7 +31,7 @@ import static uk.co.petertribble.jstripchart.JStripChart.STYLE_SOLID;
 /**
  * A panel that shows a graphical strip chart graphing 2 values.
  */
-public class JStripChart2 extends JPanel {
+public final class JStripChart2 extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
