@@ -21,7 +21,11 @@
 package uk.co.petertribble.jstripchart;
 
 import javax.swing.JPanel;
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.GeneralPath;
 import static uk.co.petertribble.jstripchart.JStripChart.DEFAULT_WIDTH;
