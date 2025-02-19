@@ -169,9 +169,9 @@ public class JStripChart extends JPanel {
      * @param d the data point to add
      */
     public void add(double d) {
-	if (autoscale && dmax < d*1.1) {
+	if (autoscale && dmax < d * 1.1) {
 	    // fudge a little extra for rounding
-	    dmax = d*1.10001;
+	    dmax = d * 1.10001;
 	}
 	ncur ++;
 	if (ncur == nsize) {
@@ -193,7 +193,7 @@ public class JStripChart extends JPanel {
 	g2.fill(new Rectangle2D.Double(0.0d, 0.0d, w, h));
 
 	double x = w;
-	double dx = w/((double) nsize);
+	double dx = w / ((double) nsize);
 
 	g2.setPaint(fgcolor);
 	/*
@@ -203,18 +203,18 @@ public class JStripChart extends JPanel {
 	 */
 	for (int i = ncur; i >= 0; i--) {
 	    x -= dx;
-	    double hh = h*values[i]/dmax;
+	    double hh = h * values[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
 	/*
 	 * Now go from the end of the array back to the current position
 	 */
-	for (int i = nsize-1; i > ncur; i--) {
+	for (int i = nsize - 1; i > ncur; i--) {
 	    x -= dx;
-	    double hh = h*values[i]/dmax;
+	    double hh = h * values[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
     }
 }

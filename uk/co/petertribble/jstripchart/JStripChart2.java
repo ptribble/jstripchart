@@ -176,13 +176,13 @@ public class JStripChart2 extends JPanel {
      * @param d2 the second data point to add
      */
     public void add(double d1, double d2) {
-	if (autoscale && dmax < d1*1.1) {
+	if (autoscale && dmax < d1 * 1.1) {
 	    // fudge a little extra for rounding
-	    dmax = d1*1.10001;
+	    dmax = d1 * 1.10001;
 	}
-	if (autoscale && dmax < d2*1.1) {
+	if (autoscale && dmax < d2 * 1.1) {
 	    // fudge a little extra for rounding
-	    dmax = d2*1.10001;
+	    dmax = d2 * 1.10001;
 	}
 	ncur ++;
 	if (ncur == nsize) {
@@ -205,7 +205,7 @@ public class JStripChart2 extends JPanel {
 	g2.fill(new Rectangle2D.Double(0.0d, 0.0d, w, h));
 
 	double x = w;
-	double dx = w/((double) nsize);
+	double dx = w / ((double) nsize);
 
 	// first paint the 2nd data point in the background
 	g2.setPaint(fgcolor2);
@@ -216,18 +216,18 @@ public class JStripChart2 extends JPanel {
 	 */
 	for (int i = ncur; i >= 0; i--) {
 	    x -= dx;
-	    double hh = h*values2[i]/dmax;
+	    double hh = h * values2[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
 	/*
 	 * Now go from the end of the array back to the current position
 	 */
-	for (int i = nsize-1; i > ncur; i--) {
+	for (int i = nsize - 1; i > ncur; i--) {
 	    x -= dx;
-	    double hh = h*values2[i]/dmax;
+	    double hh = h * values2[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
 
 	// now paint the 1st data point in the foreground
@@ -235,15 +235,15 @@ public class JStripChart2 extends JPanel {
 	x = w;
 	for (int i = ncur; i >= 0; i--) {
 	    x -= dx;
-	    double hh = h*values1[i]/dmax;
+	    double hh = h * values1[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
-	for (int i = nsize-1; i > ncur; i--) {
+	for (int i = nsize - 1; i > ncur; i--) {
 	    x -= dx;
-	    double hh = h*values1[i]/dmax;
+	    double hh = h * values1[i] / dmax;
 	    double dh = (style == STYLE_LINE) ? dx : hh;
-	    g2.fill(new Rectangle2D.Double(x, h-hh, dx, dh));
+	    g2.fill(new Rectangle2D.Double(x, h - hh, dx, dh));
 	}
 
 	// if solid, draw a line of the background where it's hidden
@@ -253,13 +253,13 @@ public class JStripChart2 extends JPanel {
 	    double dh = dx > 1.0 ? 1.0 : dx;
 	    for (int i = ncur; i >= 0; i--) {
 		x -= dx;
-		double hh = h*values2[i]/dmax;
-		g2.fill(new Rectangle2D.Double(x, h-hh, dh, dh));
+		double hh = h * values2[i] / dmax;
+		g2.fill(new Rectangle2D.Double(x, h - hh, dh, dh));
 	    }
-	    for (int i = nsize-1; i > ncur; i--) {
+	    for (int i = nsize - 1; i > ncur; i--) {
 		x -= dx;
-		double hh = h*values2[i]/dmax;
-		g2.fill(new Rectangle2D.Double(x, h-hh, dh, dh));
+		double hh = h * values2[i] / dmax;
+		g2.fill(new Rectangle2D.Double(x, h - hh, dh, dh));
 	    }
 	}
     }

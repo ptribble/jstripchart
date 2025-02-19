@@ -170,9 +170,9 @@ public class JSparkChart extends JPanel {
 	}
 	values[ncur] = d;
 	if (autoscale) {
-	    if (dmax < d*1.1) {
+	    if (dmax < d * 1.1) {
 		// fudge a little extra for rounding
-		dmax = d*1.10001;
+		dmax = d * 1.10001;
 		nmax = ncur;
 	    } else if (nmax == ncur) {
 		// we replace the old maximum, so recalculate
@@ -211,7 +211,7 @@ public class JSparkChart extends JPanel {
 	g2.fill(new Rectangle2D.Double(0.0d, 0.0d, w, h));
 
 	double x = w;
-	double dx = w/((double) nsize);
+	double dx = w / ((double) nsize);
 
 	g2.setPaint(fgcolor);
 	g2.setStroke(stroke);
@@ -224,10 +224,10 @@ public class JSparkChart extends JPanel {
 	 * start at the right, work our way back through the array
 	 * from the current position
 	 */
-	path.moveTo((float) x, (float) (hmax - hrange*values[ncur]/dmax));
-	for (int i = ncur-1; i >= 0; i--) {
+	path.moveTo((float) x, (float) (hmax - hrange * values[ncur] / dmax));
+	for (int i = ncur - 1; i >= 0; i--) {
 	    x -= dx;
-	    double hh = hmax - hrange*values[i]/dmax;
+	    double hh = hmax - hrange * values[i] / dmax;
 	    path.lineTo((float) x, (float) hh);
 	}
 	/*
@@ -235,9 +235,9 @@ public class JSparkChart extends JPanel {
 	 * only if the data has wrapped around.
 	 */
 	if (wrapped) {
-	    for (int i = nsize-1; i > ncur; i--) {
+	    for (int i = nsize - 1; i > ncur; i--) {
 		x -= dx;
-		double hh = hmax - hrange*values[i]/dmax;
+		double hh = hmax - hrange * values[i] / dmax;
 		path.lineTo((float) x, (float) hh);
 	    }
 	}
