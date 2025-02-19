@@ -184,7 +184,7 @@ public class JStripChart2 extends JPanel {
 	    // fudge a little extra for rounding
 	    dmax = d2 * 1.10001;
 	}
-	ncur ++;
+	ncur++;
 	if (ncur == nsize) {
 	    // wrap back to the beginning
 	    ncur = 0;
