@@ -10,7 +10,6 @@
 PATH=/usr/jdk/instances/jdk1.8.0/bin:$PATH
 export PATH
 
-XFLAGS="-Xlint"
 #
 # new PMD version 7 only has categories, configured in pmd-ruleset.xml
 #
@@ -18,20 +17,20 @@ PMDRULES="./pmd-ruleset.xml"
 PMDCACHE="${HOME}/.pmd/cache.jstripchart"
 
 case $1 in
-clean|-clean)
+clean)
 	rm -f $(find uk/co -type f -name '*.class')
 	rm -f $(find . -type f -name '*~')
 	rm -fr javadoc
 	exit 0
 	;;
-pmd|-pmd)
+pmd)
 	if [ ! -d "${HOME}/.pmd" ]; then
 	    mkdir -p "${HOME}/.pmd"
 	fi
-	pmd check --cache "${PMDCACHE}" -d uk -R "${PMDRULES}" --use-version java-1.8 --aux-classpath $(echo lib/java/* | sed 's= =:=g') 2>/dev/null
+	pmd check --cache "${PMDCACHE}" -d uk -R "${PMDRULES}" --use-version java-1.8 2>/dev/null
 	exit 0
 	;;
-doc|-doc)
+javadoc)
 	rm -fr javadoc
 	mkdir javadoc
 	javadoc -d javadoc uk.co.petertribble.jstripchart
@@ -39,6 +38,6 @@ doc|-doc)
 	;;
 esac
 
-javac ${XFLAGS} uk/co/petertribble/jstripchart/*.java
+javac -Xlint uk/co/petertribble/jstripchart/*.java
 
 jar cf lib/java/jstripchart.jar uk/co/petertribble/jstripchart/*.class
