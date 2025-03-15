@@ -19,7 +19,7 @@
  */
 
 /**
- * This package contains graphical widgets showing varios type of strip charts.
+ * This package contains graphical widgets showing various type of strip charts.
  */
 
 package uk.co.petertribble.jstripchart;
