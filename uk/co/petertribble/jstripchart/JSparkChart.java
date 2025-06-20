@@ -38,28 +38,47 @@ public final class JSparkChart extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-    // how many points we save
+    /**
+     * How many points we save.
+     */
     private int nsize;
-    // the current position of the data
+    /**
+     * The current position of the data.
+     */
     private int ncur = -1;
-    // the index of the largest element
+    /**
+     * The index of the largest element.
+     */
     private int nmax;
-    // whether we autoscale
+    /**
+     * Whether we autoscale.
+     */
     private boolean autoscale = true;
-    // whether we have wrapped
+    /**
+     * Whether we have wrapped.
+     */
     private boolean wrapped;
 
-    /*
+    /**
+     * The values to display.
+     *
      * We work with doubles, which is what Rectangle2D wants. We can display
      * long or int, but they're cast to double internally.
      */
     private double[] values;
 
-    // vertical range (always measured from zero)
+    /**
+     * Vertical range (always measured from zero).
+     */
     private double dmax;
 
-    // background and foreground colours
+    /**
+     * The background color.
+     */
     private Color bgcolor;
+    /**
+     * The foreground color.
+     */
     private Color fgcolor;
     private transient BasicStroke stroke;
 

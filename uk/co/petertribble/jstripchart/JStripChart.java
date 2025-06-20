@@ -35,31 +35,61 @@ public final class JStripChart extends JPanel {
     private static final long serialVersionUID = 1L;
 
     // these are imported statically by the other classes in this package
+    /**
+     * The default width of the chart.
+     */
     public static final int DEFAULT_WIDTH = 80;
+    /**
+     * The default height of the chart.
+     */
     public static final int DEFAULT_HEIGHT = 80;
+    /**
+     * For a line chart.
+     */
     public static final int STYLE_LINE = 0;
+    /**
+     * For a solid (filled) chart.
+     */
     public static final int STYLE_SOLID = 1;
 
-    // the current style
+    /**
+     * The current style.
+     */
     private int style;
 
-    // how many points we save
+    /**
+     * How many points we save.
+     */
     private int nsize;
+    /**
+     * How many points we currently have.
+     */
     private int ncur;
-    // whether we autoscale
+    /**
+     * Whether we autoscale.
+     */
     private boolean autoscale = true;
 
-    /*
+    /**
+     * The values to display.
+     *
      * We work with doubles, which is what Rectangle2D wants. We can display
      * long or int, but they're cast to double internally.
      */
     private double[] values;
 
-    // vertical range (always measured from zero)
+    /**
+     * Vertical range (always measured from zero).
+     */
     private double dmax;
 
-    // background and foreground colours
+    /**
+     * The background color.
+     */
     private Color bgcolor;
+    /**
+     * The foreground color.
+     */
     private Color fgcolor;
 
     /**

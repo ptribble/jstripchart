@@ -33,7 +33,7 @@ pmd)
 javadoc)
 	rm -fr javadoc
 	mkdir javadoc
-	javadoc -d javadoc uk.co.petertribble.jstripchart
+	javadoc -Xdoclint:all -d javadoc uk.co.petertribble.jstripchart
 	exit 0
 	;;
 esac

@@ -38,28 +38,55 @@ public final class JStripChart2 extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-    // the current style
+    /**
+     * The current style.
+     */
     private int style;
 
-    // how many points we save
+    /**
+     * How many points we save.
+     */
     private int nsize;
+    /**
+     * How many points we currently have.
+     */
     private int ncur;
-    // whether we autoscale
+    /**
+     * Whether we autoscale.
+     */
     private boolean autoscale = true;
 
-    /*
+    /**
+     * The values to display, for the first dataset.
+     *
      * We work with doubles, which is what Rectangle2D wants. We can display
      * long or int, but they're cast to double internally.
      */
     private double[] values1;
+    /**
+     * The values to display, for the second dataset.
+     *
+     * We work with doubles, which is what Rectangle2D wants. We can display
+     * long or int, but they're cast to double internally.
+     */
     private double[] values2;
 
-    // vertical range (always measured from zero)
+    /**
+     * Vertical range (always measured from zero).
+     */
     private double dmax;
 
-    // background and foreground colours
+    /**
+     * The background color.
+     */
     private Color bgcolor;
+    /**
+     * The foreground color of the first dataset.
+     */
     private Color fgcolor1;
+    /**
+     * The foreground color of the second dataset.
+     */
     private Color fgcolor2;
 
     /**
