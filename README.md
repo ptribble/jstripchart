@@ -2,6 +2,8 @@ JStripChart is a small set of Java classes producing simple strip
 charts. I wrote this for JKstat, but it's standalone and designed to be
 generally useful.
 
+The files here are licensed under CDDL, version 1.0, see the file
+LICENSES/CDDL-1.0.txt.
 
 Usage is fairly simple, first:
 
