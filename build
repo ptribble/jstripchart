@@ -36,6 +36,7 @@ spotbugs)
 	#
 	javac -Xlint uk/co/petertribble/jstripchart/*.java
 	spotbugs -auxclasspath lib/java/jstripchart.jar uk
+	rm -f uk/co/petertribble/jstripchart/*.class
 	exit 0
 	;;
 javadoc)
@@ -49,3 +50,5 @@ esac
 javac -Xlint uk/co/petertribble/jstripchart/*.java
 
 jar cf lib/java/jstripchart.jar uk/co/petertribble/jstripchart/*.class
+
+rm -f uk/co/petertribble/jstripchart/*.class
