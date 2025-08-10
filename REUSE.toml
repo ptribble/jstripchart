@@ -1,0 +1,6 @@
+version = 1
+
+[[annotations]]
+path = [ "README.md", "lib/java/jstripchart.jar" ]
+SPDX-FileCopyrightText = "2025 Peter Tribble"
+SPDX-License-Identifier = "CDDL-1.0"
