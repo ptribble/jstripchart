@@ -102,7 +102,7 @@ public final class JStripChart2 extends JPanel {
      * @param width The desired width of the strip chart
      * @param height The desired height of the strip chart
      */
-    public JStripChart2(int width, int height) {
+    public JStripChart2(final int width, final int height) {
 	this(width, height, Color.BLUE, Color.RED, Color.YELLOW);
     }
 
@@ -113,7 +113,8 @@ public final class JStripChart2 extends JPanel {
      * @param fgcolor1 The Color to be used for the first data series
      * @param fgcolor2 The Color to be used for the second data series
      */
-    public JStripChart2(Color bgcolor, Color fgcolor1, Color fgcolor2) {
+    public JStripChart2(final Color bgcolor, final Color fgcolor1,
+			final Color fgcolor2) {
 	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, bgcolor, fgcolor1, fgcolor2);
     }
 
@@ -126,8 +127,8 @@ public final class JStripChart2 extends JPanel {
      * @param fgcolor1 The Color to be used for the first data series
      * @param fgcolor2 The Color to be used for the second data series
      */
-    public JStripChart2(int width, int height, Color bgcolor,
-			Color fgcolor1, Color fgcolor2) {
+    public JStripChart2(final int width, final int height, final Color bgcolor,
+			final Color fgcolor1, final Color fgcolor2) {
 	this.bgcolor = bgcolor;
 	this.fgcolor1 = fgcolor1;
 	this.fgcolor2 = fgcolor2;
@@ -144,7 +145,7 @@ public final class JStripChart2 extends JPanel {
      *
      * @param style The line style to be used
      */
-    public void setStyle(int style) {
+    public void setStyle(final int style) {
 	this.style = style;
     }
 
@@ -154,7 +155,7 @@ public final class JStripChart2 extends JPanel {
      *
      * @param imax The required maximum value to be shown
      */
-    public void setMax(int imax) {
+    public void setMax(final int imax) {
 	setMax((double) imax);
     }
 
@@ -164,7 +165,7 @@ public final class JStripChart2 extends JPanel {
      *
      * @param lmax The required maximum value to be shown
      */
-    public void setMax(long lmax) {
+    public void setMax(final long lmax) {
 	setMax((double) lmax);
     }
 
@@ -174,7 +175,7 @@ public final class JStripChart2 extends JPanel {
      *
      * @param dmax The required maximum value to be shown
      */
-    public void setMax(double dmax) {
+    public void setMax(final double dmax) {
 	this.dmax = dmax;
 	autoscale = false;
     }
@@ -185,7 +186,7 @@ public final class JStripChart2 extends JPanel {
      * @param i1 the first data point to add
      * @param i2 the second data point to add
      */
-    public void add(int i1, int i2) {
+    public void add(final int i1, final int i2) {
 	add((double) i1, (double) i2);
     }
 
@@ -195,7 +196,7 @@ public final class JStripChart2 extends JPanel {
      * @param l1 the first data point to add
      * @param l2 the second data point to add
      */
-    public void add(long l1, long l2) {
+    public void add(final long l1, final long l2) {
 	add((double) l1, (double) l2);
     }
 
@@ -205,7 +206,7 @@ public final class JStripChart2 extends JPanel {
      * @param d1 the first data point to add
      * @param d2 the second data point to add
      */
-    public void add(double d1, double d2) {
+    public void add(final double d1, final double d2) {
 	if (autoscale && dmax < d1 * 1.1) {
 	    // fudge a little extra for rounding
 	    dmax = d1 * 1.10001;
@@ -225,7 +226,7 @@ public final class JStripChart2 extends JPanel {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(final Graphics g) {
 	Graphics2D g2 = (Graphics2D) g;
 	Dimension d = getSize();
 

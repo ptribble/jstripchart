@@ -95,7 +95,7 @@ public final class JSparkChart extends JPanel {
      * @param width The desired width of the sparkline chart
      * @param height The desired height of the sparkline chart
      */
-    public JSparkChart(int width, int height) {
+    public JSparkChart(final int width, final int height) {
 	this(width, height, Color.BLUE, Color.RED);
     }
 
@@ -105,7 +105,7 @@ public final class JSparkChart extends JPanel {
      * @param bgcolor The Color to be used for the chart background
      * @param fgcolor The Color to be used for the chart foreground
      */
-    public JSparkChart(Color bgcolor, Color fgcolor) {
+    public JSparkChart(final Color bgcolor, final Color fgcolor) {
 	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, bgcolor, fgcolor);
     }
 
@@ -117,8 +117,8 @@ public final class JSparkChart extends JPanel {
      * @param bgcolor The Color to be used for the chart background
      * @param fgcolor The Color to be used for the chart foreground
      */
-    public JSparkChart(int width, int height, Color bgcolor,
-			Color fgcolor) {
+    public JSparkChart(final int width, final int height, final Color bgcolor,
+			final Color fgcolor) {
 	this.bgcolor = bgcolor;
 	this.fgcolor = fgcolor;
 	setMinimumSize(new Dimension(width, height));
@@ -136,7 +136,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param imax The required maximum value to be shown
      */
-    public void setMax(int imax) {
+    public void setMax(final int imax) {
 	setMax((double) imax);
     }
 
@@ -146,7 +146,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param lmax The required maximum value to be shown
      */
-    public void setMax(long lmax) {
+    public void setMax(final long lmax) {
 	setMax((double) lmax);
     }
 
@@ -156,7 +156,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param dmax The required maximum value to be shown
      */
-    public void setMax(double dmax) {
+    public void setMax(final double dmax) {
 	this.dmax = dmax;
 	autoscale = false;
     }
@@ -166,7 +166,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param i the data point to add
      */
-    public void add(int i) {
+    public void add(final int i) {
 	add((double) i);
     }
 
@@ -175,7 +175,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param l the data point to add
      */
-    public void add(long l) {
+    public void add(final long l) {
 	add((double) l);
     }
 
@@ -184,7 +184,7 @@ public final class JSparkChart extends JPanel {
      *
      * @param d the data point to add
      */
-    public void add(double d) {
+    public void add(final double d) {
 	ncur++;
 	if (ncur == nsize) {
 	    // wrap back to the beginning
@@ -222,7 +222,7 @@ public final class JSparkChart extends JPanel {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(final Graphics g) {
 	Graphics2D g2 = (Graphics2D) g;
 	Dimension d = getSize();
 
