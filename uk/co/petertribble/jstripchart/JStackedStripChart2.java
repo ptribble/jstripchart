@@ -108,13 +108,13 @@ public final class JStackedStripChart2 extends JPanel {
     /**
      * Create an empty strip chart of the specified colours.
      *
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor1 The Color to be used for the first data series
-     * @param fgcolor2 The Color to be used for the second data series
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor1 The Color to be used for the first data series
+     * @param nfcolor2 The Color to be used for the second data series
      */
-    public JStackedStripChart2(final Color bgcolor, final Color fgcolor1,
-			       final Color fgcolor2) {
-	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, bgcolor, fgcolor1, fgcolor2);
+    public JStackedStripChart2(final Color nbcolor, final Color nfcolor1,
+			       final Color nfcolor2) {
+	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, nbcolor, nfcolor1, nfcolor2);
     }
 
     /**
@@ -122,15 +122,15 @@ public final class JStackedStripChart2 extends JPanel {
      *
      * @param width The desired width of the strip chart
      * @param height The desired height of the strip chart
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor1 The Color to be used for the first data series
-     * @param fgcolor2 The Color to be used for the second data series
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor1 The Color to be used for the first data series
+     * @param nfcolor2 The Color to be used for the second data series
      */
     public JStackedStripChart2(final int width, final int height,
-	    final Color bgcolor, final Color fgcolor1, final Color fgcolor2) {
-	this.bgcolor = bgcolor;
-	this.fgcolor1 = fgcolor1;
-	this.fgcolor2 = fgcolor2;
+	    final Color nbcolor, final Color nfcolor1, final Color nfcolor2) {
+	bgcolor = nbcolor;
+	fgcolor1 = nfcolor1;
+	fgcolor2 = nfcolor2;
 	setMinimumSize(new Dimension(width, height));
 	setPreferredSize(new Dimension(width, height));
 	nsize = width;
@@ -142,10 +142,10 @@ public final class JStackedStripChart2 extends JPanel {
     /**
      * Set the line style to be used.
      *
-     * @param style The line style to be used
+     * @param nstyle The line style to be used
      */
-    public void setStyle(final int style) {
-	this.style = style;
+    public void setStyle(final int nstyle) {
+	style = nstyle;
     }
 
     /**
@@ -172,10 +172,10 @@ public final class JStackedStripChart2 extends JPanel {
      * Set the maximum scale. Also forces the vertical scale to be fixed
      * rather than dynamically adjusting to the data.
      *
-     * @param dmax The required maximum value to be shown
+     * @param ndmax The required maximum value to be shown
      */
-    public void setMax(final double dmax) {
-	this.dmax = dmax;
+    public void setMax(final double ndmax) {
+	dmax = ndmax;
 	autoscale = false;
     }
 

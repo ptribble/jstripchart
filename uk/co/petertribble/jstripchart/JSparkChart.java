@@ -80,6 +80,9 @@ public final class JSparkChart extends JPanel {
      * The foreground color.
      */
     private Color fgcolor;
+    /**
+     * The Stroke used to draw the sparkline.
+     */
     private transient BasicStroke stroke;
 
     /**
@@ -102,11 +105,11 @@ public final class JSparkChart extends JPanel {
     /**
      * Create an empty sparkline chart of the specified colours.
      *
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor The Color to be used for the chart foreground
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor The Color to be used for the chart foreground
      */
-    public JSparkChart(final Color bgcolor, final Color fgcolor) {
-	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, bgcolor, fgcolor);
+    public JSparkChart(final Color nbcolor, final Color nfcolor) {
+	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, nbcolor, nfcolor);
     }
 
     /**
@@ -114,13 +117,13 @@ public final class JSparkChart extends JPanel {
      *
      * @param width The desired width of the sparkline chart
      * @param height The desired height of the sparkline chart
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor The Color to be used for the chart foreground
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor The Color to be used for the chart foreground
      */
-    public JSparkChart(final int width, final int height, final Color bgcolor,
-			final Color fgcolor) {
-	this.bgcolor = bgcolor;
-	this.fgcolor = fgcolor;
+    public JSparkChart(final int width, final int height, final Color nbcolor,
+			final Color nfcolor) {
+	bgcolor = nbcolor;
+	fgcolor = nfcolor;
 	setMinimumSize(new Dimension(width, height));
 	setPreferredSize(new Dimension(width, height));
 	nsize = width;
@@ -154,10 +157,10 @@ public final class JSparkChart extends JPanel {
      * Set the maximum scale. Also forces the vertical scale to be fixed
      * rather than dynamically adjusting to the data.
      *
-     * @param dmax The required maximum value to be shown
+     * @param ndmax The required maximum value to be shown
      */
-    public void setMax(final double dmax) {
-	this.dmax = dmax;
+    public void setMax(final double ndmax) {
+	dmax = ndmax;
 	autoscale = false;
     }
 

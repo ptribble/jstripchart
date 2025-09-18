@@ -112,11 +112,11 @@ public final class JStripChart extends JPanel {
     /**
      * Create an empty strip chart of the specified colours.
      *
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor The Color to be used for the chart foreground
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor The Color to be used for the chart foreground
      */
-    public JStripChart(final Color bgcolor, final Color fgcolor) {
-	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, bgcolor, fgcolor);
+    public JStripChart(final Color nbcolor, final Color nfcolor) {
+	this(DEFAULT_WIDTH, DEFAULT_HEIGHT, nbcolor, nfcolor);
     }
 
     /**
@@ -124,13 +124,13 @@ public final class JStripChart extends JPanel {
      *
      * @param width The desired width of the strip chart
      * @param height The desired height of the strip chart
-     * @param bgcolor The Color to be used for the chart background
-     * @param fgcolor The Color to be used for the chart foreground
+     * @param nbcolor The Color to be used for the chart background
+     * @param nfcolor The Color to be used for the chart foreground
      */
-    public JStripChart(final int width, final int height, final Color bgcolor,
-			final Color fgcolor) {
-	this.bgcolor = bgcolor;
-	this.fgcolor = fgcolor;
+    public JStripChart(final int width, final int height, final Color nbcolor,
+			final Color nfcolor) {
+	bgcolor = nbcolor;
+	fgcolor = nfcolor;
 	setMinimumSize(new Dimension(width, height));
 	setPreferredSize(new Dimension(width, height));
 	nsize = width;
@@ -141,10 +141,10 @@ public final class JStripChart extends JPanel {
     /**
      * Set the line style to be used.
      *
-     * @param style The line style to be used
+     * @param nstyle The line style to be used
      */
-    public void setStyle(final int style) {
-	this.style = style;
+    public void setStyle(final int nstyle) {
+	style = nstyle;
     }
 
     /**
@@ -171,10 +171,10 @@ public final class JStripChart extends JPanel {
      * Set the maximum scale. Also forces the vertical scale to be fixed
      * rather than dynamically adjusting to the data.
      *
-     * @param dmax The required maximum value to be shown
+     * @param ndmax The required maximum value to be shown
      */
-    public void setMax(final double dmax) {
-	this.dmax = dmax;
+    public void setMax(final double ndmax) {
+	dmax = ndmax;
 	autoscale = false;
     }
 
